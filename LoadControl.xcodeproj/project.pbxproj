@@ -18,6 +18,12 @@
 		D63F1A412BD4EA1700E2BEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63F1A402BD4EA1700E2BEBA /* Assets.xcassets */; };
 		D63F1A442BD4EA1700E2BEBA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D63F1A432BD4EA1700E2BEBA /* Base */; };
 		D63F1A4A2BD4EA9800E2BEBA /* LoadControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63F1A492BD4EA9800E2BEBA /* LoadControl.swift */; };
+		D64B581C2BD62D0D00697AE6 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B581B2BD62D0D00697AE6 /* Async.swift */; };
+		D64B58202BD62FE300697AE6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B581F2BD62FE300697AE6 /* UIView.swift */; };
+		D64B58222BD630E300697AE6 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B58212BD630E300697AE6 /* UIScrollView.swift */; };
+		D64B58252BD6316900697AE6 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B58242BD6316900697AE6 /* ObjectAssociation.swift */; };
+		D64B58272BD632EF00697AE6 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B58262BD632EF00697AE6 /* UITableView.swift */; };
+		D64B58292BD634EC00697AE6 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B58282BD634EC00697AE6 /* Haptic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		D63F1A432BD4EA1700E2BEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D63F1A452BD4EA1700E2BEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D63F1A492BD4EA9800E2BEBA /* LoadControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadControl.swift; sourceTree = "<group>"; };
+		D64B581B2BD62D0D00697AE6 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		D64B581F2BD62FE300697AE6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D64B58212BD630E300697AE6 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		D64B58242BD6316900697AE6 /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		D64B58262BD632EF00697AE6 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		D64B58282BD634EC00697AE6 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +108,12 @@
 		D63F1A192BD4E95100E2BEBA /* LoadControl */ = {
 			isa = PBXGroup;
 			children = (
-				D63F1A1B2BD4E95100E2BEBA /* LoadControl.docc */,
 				D63F1A1A2BD4E95100E2BEBA /* LoadControl.h */,
+				D63F1A1B2BD4E95100E2BEBA /* LoadControl.docc */,
+				D64B58232BD630E800697AE6 /* Extensions */,
+				D64B581B2BD62D0D00697AE6 /* Async.swift */,
+				D64B58282BD634EC00697AE6 /* Haptic.swift */,
+				D64B58242BD6316900697AE6 /* ObjectAssociation.swift */,
 				D63F1A492BD4EA9800E2BEBA /* LoadControl.swift */,
 			);
 			path = LoadControl;
@@ -114,15 +130,25 @@
 		D63F1A362BD4EA1600E2BEBA /* LoadControlExamples */ = {
 			isa = PBXGroup;
 			children = (
+				D63F1A402BD4EA1700E2BEBA /* Assets.xcassets */,
+				D63F1A422BD4EA1700E2BEBA /* LaunchScreen.storyboard */,
+				D63F1A3D2BD4EA1600E2BEBA /* Main.storyboard */,
 				D63F1A372BD4EA1600E2BEBA /* AppDelegate.swift */,
 				D63F1A392BD4EA1600E2BEBA /* SceneDelegate.swift */,
 				D63F1A3B2BD4EA1600E2BEBA /* ViewController.swift */,
-				D63F1A3D2BD4EA1600E2BEBA /* Main.storyboard */,
-				D63F1A402BD4EA1700E2BEBA /* Assets.xcassets */,
-				D63F1A422BD4EA1700E2BEBA /* LaunchScreen.storyboard */,
 				D63F1A452BD4EA1700E2BEBA /* Info.plist */,
 			);
 			path = LoadControlExamples;
+			sourceTree = "<group>";
+		};
+		D64B58232BD630E800697AE6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D64B581F2BD62FE300697AE6 /* UIView.swift */,
+				D64B58212BD630E300697AE6 /* UIScrollView.swift */,
+				D64B58262BD632EF00697AE6 /* UITableView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64B58292BD634EC00697AE6 /* Haptic.swift in Sources */,
+				D64B58252BD6316900697AE6 /* ObjectAssociation.swift in Sources */,
+				D64B58222BD630E300697AE6 /* UIScrollView.swift in Sources */,
 				D63F1A1C2BD4E95100E2BEBA /* LoadControl.docc in Sources */,
+				D64B581C2BD62D0D00697AE6 /* Async.swift in Sources */,
 				D63F1A4A2BD4EA9800E2BEBA /* LoadControl.swift in Sources */,
+				D64B58202BD62FE300697AE6 /* UIView.swift in Sources */,
+				D64B58272BD632EF00697AE6 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
