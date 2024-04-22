@@ -5,7 +5,7 @@
 //  Created by Trần T. Dũng on 22/4/24.
 //
 
-import Foundation
+import UIKit
 
 // !!!: IMPORTANT 📛 VERY DANGEROUS
 private enum Swizzling {

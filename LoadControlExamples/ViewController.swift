@@ -17,11 +17,11 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.loadControl = LoadControl()
-        self.tableView.loadControl?.addAction({ [weak self] in
-            guard let `self` = self else { return }
-            Haptic.light()
-        })
+//        self.tableView.loadControl = LoadControl()
+//        self.tableView.loadControl?.addAction({ [weak self] in
+//            guard let `self` = self else { return }
+//            Haptic.light()
+//        })
     }
 }
 

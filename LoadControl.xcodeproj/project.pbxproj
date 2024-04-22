@@ -10,7 +10,6 @@
 		D6ECA8082BD6396A0082EB26 /* LoadControl.docc in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8072BD6396A0082EB26 /* LoadControl.docc */; };
 		D6ECA80E2BD6396A0082EB26 /* LoadControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6ECA8032BD6396A0082EB26 /* LoadControl.framework */; };
 		D6ECA8132BD6396A0082EB26 /* LoadControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8122BD6396A0082EB26 /* LoadControlTests.swift */; };
-		D6ECA8142BD6396A0082EB26 /* LoadControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D6ECA8062BD6396A0082EB26 /* LoadControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6ECA83B2BD63AA30082EB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8312BD63AA30082EB26 /* AppDelegate.swift */; };
 		D6ECA83C2BD63AA30082EB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6ECA8322BD63AA30082EB26 /* Assets.xcassets */; };
 		D6ECA83E2BD63AA30082EB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6ECA8352BD63AA30082EB26 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,7 @@
 		D6ECA8402BD63AA30082EB26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8382BD63AA30082EB26 /* SceneDelegate.swift */; };
 		D6ECA8412BD63AA30082EB26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8392BD63AA30082EB26 /* ViewController.swift */; };
 		D6ECA85B2BD63EAA0082EB26 /* LoadControl.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D6ECA85A2BD63EAA0082EB26 /* LoadControl.podspec */; };
+		D6ECA8912BD64DDD0082EB26 /* LoadControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D6ECA8062BD6396A0082EB26 /* LoadControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +132,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6ECA8142BD6396A0082EB26 /* LoadControl.h in Headers */,
+				D6ECA8912BD64DDD0082EB26 /* LoadControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
