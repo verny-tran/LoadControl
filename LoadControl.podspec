@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LoadControl'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A standard control that can initiate the loading of a scroll view’s contents.'
 
   # s.description      = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '13.0'
     
-  s.source           = { :git => 'https://github.com/verny-tran/LoadControl.git', :tag => 'v0.1.0' }
+  s.source           = { :git => 'https://github.com/verny-tran/LoadControl.git', :tag => 'v0.1.1' }
   s.source_files = 'LoadControl/LoadControl.docc/Resources/*'
   
   # s.resource_bundles = {
