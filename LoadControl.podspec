@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
     
   s.source           = { :git => 'https://github.com/verny-tran/LoadControl.git', :tag => 'v0.1.1' }
-  s.source_files = 'LoadControl/LoadControl.docc/Resources/*'
+  s.source_files = 'Sources/*'
   
   # s.resource_bundles = {
   #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
