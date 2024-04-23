@@ -5,6 +5,6 @@
       location = "group:LoadControl.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:LoadControl-Demo/LoadControl-Demo.xcodeproj">
+      location = "group:Demo/LoadControl-Demo.xcodeproj">
    </FileRef>
 </Workspace>
