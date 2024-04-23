@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LoadControl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LoadControl-Demo/LoadControl-Demo.xcodeproj">
+   </FileRef>
+</Workspace>
