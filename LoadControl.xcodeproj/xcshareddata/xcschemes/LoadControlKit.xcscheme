@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6ECA8022BD6396A0082EB26"
-               BuildableName = "LoadControl.framework"
-               BlueprintName = "LoadControl"
+               BlueprintIdentifier = "D65888C42BD79AA900F5422A"
+               BuildableName = "LoadControlKit.framework"
+               BlueprintName = "LoadControlKit"
                ReferencedContainer = "container:LoadControl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D6ECA8022BD6396A0082EB26"
-            BuildableName = "LoadControl.framework"
-            BlueprintName = "LoadControl"
+            BlueprintIdentifier = "D65888C42BD79AA900F5422A"
+            BuildableName = "LoadControlKit.framework"
+            BlueprintName = "LoadControlKit"
             ReferencedContainer = "container:LoadControl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

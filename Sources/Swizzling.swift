@@ -28,8 +28,10 @@ private enum Swizzling {
 extension UIScrollView {
     /// ONLY **SWIZZLE** the `UIScrollView's` <loading> methods
     /// of <loadingContentOffset(_:)> & <loadingContentSize(_:)> for once in the app life cycle!!!
+    private(set) static var isSwizzled: Bool = false
     
-    static let swizzle: Void = {
+    static let swizzle: Void = { UIScrollView.isSwizzled = true
+        
         Swizzling.swizzle(UIScrollView.self, case: .instance,
                           original: #selector(setter: UIScrollView.contentOffset),
                           swizzled: #selector(UIScrollView.loadingContentOffset(_:)))
@@ -37,9 +39,5 @@ extension UIScrollView {
         Swizzling.swizzle(UIScrollView.self, case: .instance,
                           original: #selector(setter: UIScrollView.contentSize),
                           swizzled: #selector(UIScrollView.loadingContentSize(_:)))
-        
-        UIScrollView.isSwizzled = true
     }()
-    
-    private(set) static var isSwizzled: Bool = false
 }

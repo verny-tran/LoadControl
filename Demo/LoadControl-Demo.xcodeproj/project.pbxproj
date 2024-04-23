@@ -13,7 +13,23 @@
 		D65888682BD7846900F5422A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D65888672BD7846900F5422A /* Base */; };
 		D658886A2BD7846A00F5422A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65888692BD7846A00F5422A /* Assets.xcassets */; };
 		D658886D2BD7846A00F5422A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D658886C2BD7846A00F5422A /* Base */; };
+		D65889002BD7A81000F5422A /* LoadControlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65888FF2BD7A81000F5422A /* LoadControlKit.framework */; };
+		D65889012BD7A81000F5422A /* LoadControlKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65888FF2BD7A81000F5422A /* LoadControlKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D65889022BD7A81000F5422A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D65889012BD7A81000F5422A /* LoadControlKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D658885D2BD7846900F5422A /* LoadControl-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoadControl-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		D65888692BD7846A00F5422A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D658886C2BD7846A00F5422A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D658886E2BD7846A00F5422A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D65888FF2BD7A81000F5422A /* LoadControlKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoadControlKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65889002BD7A81000F5422A /* LoadControlKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				D658885F2BD7846900F5422A /* LoadControl-Demo */,
 				D658885E2BD7846900F5422A /* Products */,
+				D65888DA2BD79ACA00F5422A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,14 @@
 			path = "LoadControl-Demo";
 			sourceTree = "<group>";
 		};
+		D65888DA2BD79ACA00F5422A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D65888FF2BD7A81000F5422A /* LoadControlKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +104,7 @@
 				D65888592BD7846900F5422A /* Sources */,
 				D658885A2BD7846900F5422A /* Frameworks */,
 				D658885B2BD7846900F5422A /* Resources */,
+				D65889022BD7A81000F5422A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,6 +328,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,6 +357,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
