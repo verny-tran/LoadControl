@@ -82,13 +82,18 @@ final public class LoadControl: UIControl {
         default: return self.scrollView?.contentSize.width ?? 0 > constant
         }
     }
+    
+    /// The `default` frame of <LoadControl>
+    private static var defaultFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.size.width, height: 50))
 
     /// The designated initializer
     /// This initializes a `LoadingControl` with a default height and width.
     /// Once assigned to a `UITableViewController`, the frame of the control is managed automatically.
     /// When a user has scroll-to-load-more, the `LoadingControl` fires its `UIControlEventValueChanged` event.
-    override init(frame: CGRect = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.size.width, height: 50))) {
+    override init(frame: CGRect = LoadControl.defaultFrame) {
         super.init(frame: frame)
+        
+        if !UIScrollView.isSwizzled { UIScrollView.swizzle }
         self.addSubview(self.activityIndicatorView)
         
         self.activityIndicatorView.widthAnchor.constraint(equalToConstant: 60).isActive = true

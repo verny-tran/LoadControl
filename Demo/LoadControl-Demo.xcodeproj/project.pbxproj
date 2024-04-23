@@ -56,13 +56,13 @@
 		D658885F2BD7846900F5422A /* LoadControl-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D658886E2BD7846A00F5422A /* Info.plist */,
+				D65888692BD7846A00F5422A /* Assets.xcassets */,
+				D65888662BD7846900F5422A /* Main.storyboard */,
+				D658886B2BD7846A00F5422A /* LaunchScreen.storyboard */,
 				D65888602BD7846900F5422A /* AppDelegate.swift */,
 				D65888622BD7846900F5422A /* SceneDelegate.swift */,
 				D65888642BD7846900F5422A /* ViewController.swift */,
-				D65888662BD7846900F5422A /* Main.storyboard */,
-				D65888692BD7846A00F5422A /* Assets.xcassets */,
-				D658886B2BD7846A00F5422A /* LaunchScreen.storyboard */,
-				D658886E2BD7846A00F5422A /* Info.plist */,
 			);
 			path = "LoadControl-Demo";
 			sourceTree = "<group>";

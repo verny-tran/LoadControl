@@ -37,5 +37,9 @@ extension UIScrollView {
         Swizzling.swizzle(UIScrollView.self, case: .instance,
                           original: #selector(setter: UIScrollView.contentSize),
                           swizzled: #selector(UIScrollView.loadingContentSize(_:)))
+        
+        UIScrollView.isSwizzled = true
     }()
+    
+    private(set) static var isSwizzled: Bool = false
 }
