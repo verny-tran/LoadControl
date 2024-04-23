@@ -14,7 +14,8 @@ let loadingAnimationDuration: TimeInterval = 0.5
 /// Keys for values in `associated dictionary`
 let loadingStateKey: UnsafeRawPointer = loadingStateKey
 
-final public class LoadControl: UIControl {
+@MainActor
+public class LoadControl : UIControl {
     /// Loading `direction`, horizontal for <UICollectionView>
     public enum Direction: UInt {
         case vertical
@@ -31,8 +32,10 @@ final public class LoadControl: UIControl {
     public var isLoading: Bool = false
     
     /// `Activity Indicator` view
-    public let activityIndicatorView: UIActivityIndicatorView = {
+    internal let activityIndicatorView: UIActivityIndicatorView = {
         let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+        activityIndicatorView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
         return activityIndicatorView
     }()
 
@@ -63,17 +66,14 @@ final public class LoadControl: UIControl {
     
     /// Flag `used to return user back to start` of scroll view when loading initial content.
     public var scrollToStartWhenFinished: Bool = false
-
-    /// Infinite loading `scroll handler block`
-    public var loadingHandler: (() -> Void)?
     
     /// Infinite scroll allowed block
     /// Return `FALSE` to block the infinite scroll.
     /// Useful to stop requests when you have shown all results, etc.
-    public var shouldShowLoadingHandler: (() -> Bool)?
+    public var shouldShowLoadingHandler: Bool?
     
     /// Checks if `UIScrollView is empty`.
-    var hasLoadingContent: Bool {
+    internal var hasLoadingContent: Bool {
         var constant: CGFloat = 0 /// Default `UITableView` reports height = 1 on empty tables
         if self.scrollView is UITableView { constant = 1 }
 
@@ -83,15 +83,11 @@ final public class LoadControl: UIControl {
         }
     }
     
-    /// The `default` frame of <LoadControl>
-    private static var defaultFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.size.width, height: 50))
-
-    /// The designated initializer
-    /// This initializes a `LoadingControl` with a default height and width.
+    /// The designated initializer. This initializes a `LoadingControl` with a default height and width.
     /// Once assigned to a `UITableViewController`, the frame of the control is managed automatically.
     /// When a user has scroll-to-load-more, the `LoadingControl` fires its `UIControlEventValueChanged` event.
-    override init(frame: CGRect = LoadControl.defaultFrame) {
-        super.init(frame: frame)
+    public init() {
+        super.init(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.size.width, height: 44)))
         
         if !UIScrollView.isSwizzled { UIScrollView.swizzle }
         self.addSubview(self.activityIndicatorView)
@@ -106,17 +102,17 @@ final public class LoadControl: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func addAction(_ action: @escaping () -> Void) {
-        /// `Save` handler block
-        self.loadingHandler = action
+    override public func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+        super.addTarget(target, action: action, for: controlEvents)
         
-        /// `Double initialization` only replaces handler block
+        guard controlEvents == .valueChanged else { return }
+        
+        /// `Double initialization` only replaces handler block.
         /// Do not continue if `already initialized`
         if self.isInitialized { return }
         
         /// Add `pan gesture` handler
-        let handler = #selector(self.handleLoadingGesture(_:))
-        self.scrollView?.panGestureRecognizer.addTarget(self, action: handler)
+        self.scrollView?.panGestureRecognizer.addTarget(self, action: #selector(self.handleGesture(_:)))
         
         /// Mark loadingScroll `initialized`
         self.isInitialized = true
@@ -129,9 +125,9 @@ final public class LoadControl: UIControl {
 
     /// Must be explicitly `called when the refreshing has completed`
     public func endLoading() {
-        if self.isLoading { Async.delay(.milliseconds(500)) {
-            self.scrollView?.stopLoadingAnimation(completion: nil)
-        } }
+        guard self.isLoading else { return }
+        
+        Async.delay(.milliseconds(500)) { self.scrollView?.stopLoadingAnimation(completion: nil) }
     }
     
     /// Must be explicitly `called when the refreshing has removed`
@@ -140,23 +136,19 @@ final public class LoadControl: UIControl {
         if !self.isInitialized { return }
         
         /// `Remove` pan gesture handler
-        let handler = #selector(self.handleLoadingGesture(_:))
-        self.scrollView?.panGestureRecognizer.removeTarget(self, action: handler)
+        self.scrollView?.panGestureRecognizer.removeTarget(self, action: #selector(handleGesture(_:)))
         
         /// `Destroy` loading indicator
         self.activityIndicatorView.removeFromSuperview()
-        
-        /// `Release` handler block
-        self.loadingHandler = nil
         
         /// Mark loading `as uninitialized`
         self.isInitialized = false
     }
     
     @objc /// `Additional pan gesture handler` used to adjust content offset to reveal or hide indicator view.
-    private func handleLoadingGesture(_ recognizer: UITapGestureRecognizer) {
+    private func handleGesture(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended || recognizer.state == .cancelled || recognizer.state == .failed {
-            self.scrollView?.scrollToLoadingIndicatorIfNeeded(reveal: true, force: false)
+            self.scrollView?.scrollToLoadingIndicatorIfNeeded(shouldReveal: true, scrollToBottom: false)
         }
     }
 }

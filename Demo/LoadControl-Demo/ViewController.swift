@@ -21,15 +21,7 @@ class ViewController: UIViewController {
         self.tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         self.tableView.loadControl = LoadControl()
-        self.tableView.loadControl?.addAction({ [weak self] in
-            guard let `self` = self else { return }
-            Haptic.light()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: { [weak self] in
-                guard let `self` = self else { return }
-                self.tableView.loadControl?.endLoading()
-            })
-        })
+        self.tableView.loadControl?.addTarget(self, action: #selector(load), for: .valueChanged)
     }
     
     @objc
@@ -37,6 +29,14 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: { [weak self] in
             guard let `self` = self else { return }
             self.tableView.refreshControl?.endRefreshing()
+        })
+    }
+    
+    @objc
+    private func load() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: { [weak self] in
+            guard let `self` = self else { return }
+            self.tableView.loadControl?.endLoading()
         })
     }
 }
