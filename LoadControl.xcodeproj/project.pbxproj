@@ -15,6 +15,7 @@
 		D658882A2BD77F4000F5422A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888222BD77F4000F5422A /* ObjectAssociation.swift */; };
 		D658882B2BD77F4000F5422A /* Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888232BD77F4000F5422A /* Swizzling.swift */; };
 		D658882C2BD77F4000F5422A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888242BD77F4000F5422A /* Async.swift */; };
+		D65888752BD7898B00F5422A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D65888742BD7898B00F5422A /* Info.plist */; };
 		D6ECA80E2BD6396A0082EB26 /* LoadControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6ECA8032BD6396A0082EB26 /* LoadControl.framework */; };
 		D6ECA8132BD6396A0082EB26 /* LoadControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ECA8122BD6396A0082EB26 /* LoadControlTests.swift */; };
 		D6ECA85B2BD63EAA0082EB26 /* LoadControl.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D6ECA85A2BD63EAA0082EB26 /* LoadControl.podspec */; };
@@ -39,6 +40,7 @@
 		D65888222BD77F4000F5422A /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		D65888232BD77F4000F5422A /* Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzling.swift; sourceTree = "<group>"; };
 		D65888242BD77F4000F5422A /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		D65888742BD7898B00F5422A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Kingfisher/Sources/Info.plist; sourceTree = "<group>"; };
 		D6ECA8032BD6396A0082EB26 /* LoadControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoadControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6ECA80D2BD6396A0082EB26 /* LoadControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6ECA8122BD6396A0082EB26 /* LoadControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadControlTests.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		D658881C2BD77F0600F5422A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D65888742BD7898B00F5422A /* Info.plist */,
 				D658882D2BD77F8700F5422A /* Extensions */,
 				D65888242BD77F4000F5422A /* Async.swift */,
 				D658881F2BD77F3F00F5422A /* Haptic.swift */,
@@ -205,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65888752BD7898B00F5422A /* Info.plist in Resources */,
 				D6ECA85B2BD63EAA0082EB26 /* LoadControl.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +395,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -425,6 +430,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
