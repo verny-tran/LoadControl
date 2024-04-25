@@ -3,9 +3,8 @@
     <img width="15%" src="https://github.com/verny-tran/LoadControl/blob/main/Resources/Icons/LoadControl.png"> 
 </p>
 
-<h1 align="center"> LoadControl 
-    <p align="center"> A standard control that can initiate the loading of a scroll view’s contents. </p>
-</h1>
+<h1 align="center"> LoadControl </h1>
+<p align="center"> A standard control that can initiate the loading of a scroll view’s contents. </p>
 
 ## Features
 - [x] Footer loading indicator
