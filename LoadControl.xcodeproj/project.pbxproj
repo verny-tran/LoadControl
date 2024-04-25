@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6574B8E2BDAB159009D1F02 /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = D6574B8B2BDAB158009D1F02 /* CODE_OF_CONDUCT.md */; };
+		D6574B8F2BDAB159009D1F02 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D6574B8C2BDAB159009D1F02 /* README.md */; };
+		D6574B902BDAB159009D1F02 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D6574B8D2BDAB159009D1F02 /* LICENSE */; };
 		D65888CD2BD79AA900F5422A /* LoadControlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65888C52BD79AA900F5422A /* LoadControlKit.framework */; };
 		D65888D22BD79AA900F5422A /* LoadControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888D12BD79AA900F5422A /* LoadControlTests.swift */; };
 		D65888D32BD79AA900F5422A /* LoadControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D65888C72BD79AA900F5422A /* LoadControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6574B8B2BDAB158009D1F02 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		D6574B8C2BDAB159009D1F02 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6574B8D2BDAB159009D1F02 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D658881D2BD77F3F00F5422A /* LoadControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadControl.swift; sourceTree = "<group>"; };
 		D658881E2BD77F3F00F5422A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		D658881F2BD77F3F00F5422A /* Haptic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 		D6ECA7F92BD6396A0082EB26 = {
 			isa = PBXGroup;
 			children = (
+				D6574B8C2BDAB159009D1F02 /* README.md */,
+				D6574B8D2BDAB159009D1F02 /* LICENSE */,
+				D6574B8B2BDAB158009D1F02 /* CODE_OF_CONDUCT.md */,
 				D6ECA85A2BD63EAA0082EB26 /* LoadControl.podspec */,
 				D65888C72BD79AA900F5422A /* LoadControl.h */,
 				D65888C62BD79AA900F5422A /* LoadControl */,
@@ -208,6 +217,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6574B902BDAB159009D1F02 /* LICENSE in Resources */,
+				D6574B8F2BDAB159009D1F02 /* README.md in Resources */,
+				D6574B8E2BDAB159009D1F02 /* CODE_OF_CONDUCT.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
