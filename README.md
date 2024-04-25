@@ -55,9 +55,7 @@ pod 'LoadControl'
 
 ## Authors
 
-[Trần T. Dũng](https://github.com/verny-tran) (Verny), vernytran@icloud.com
-
-[Võ C. Kha](https://github.com/zachvoxwatt) (Zach), khavo0704@gmail.com
+[**Trần T. Dũng**](https://github.com/verny-tran) (Verny), vernytran@icloud.com and [**Võ C. Kh**a](https://github.com/zachvoxwatt) (Zach), khavo0704@gmail.com.
 
 ## License
 
