@@ -151,7 +151,8 @@ extension UIScrollView {
         let loadControl = self.wrappedLoadControl()
         loadControl.activityIndicatorView.startAnimating()
         
-        Haptic.medium() /// `Mimic` the behavior of <UIRefreshControl> with a little `impact feedback`.
+        /// `Mimic` the behavior of <UIRefreshControl> with a little `impact feedback`.
+        if loadControl.isHapticEnabled { Haptic.medium() }
         
         /// Layout `indicator view`.
         self.positionLoadingIndicator(with: self.contentSize)
@@ -297,9 +298,10 @@ extension UIScrollView {
     /// Scrolls view `to start`.
     ///
     private func scrollToStart() {
+        let loadControl = self.wrappedLoadControl()
         var contentOffset: CGPoint = .zero
         
-        switch self.loadControl?.direction {
+        switch loadControl.direction {
         case .vertical:
             contentOffset.x = self.contentOffset.x
             contentOffset.y = self.adjustedContentInset.top * -1
@@ -307,8 +309,6 @@ extension UIScrollView {
         case .horizontal:
             contentOffset.x = self.adjustedContentInset.left * -1
             contentOffset.y = self.contentOffset.y
-            
-        default: break
         }
         
         self.contentOffset = contentOffset
@@ -322,9 +322,10 @@ extension UIScrollView {
     ///
     internal func scrollToLoadingIndicatorIfNeeded(shouldReveal: Bool, scrollToBottom: Bool) {
         guard !self.isDragging else { return } /// `Do not interfere` with the user.
-
+        let loadControl = self.wrappedLoadControl()
+        
         /// `Filter out` calls from the `pan gesture`.
-        guard let loadControl = self.loadControl, loadControl.isLoading else { return }
+        guard loadControl.isLoading else { return }
         
         /// `Force` the table view to update it's `content size`.
         if let tableView = self as? UITableView { tableView.forceUpdateContentSize() }
@@ -370,8 +371,21 @@ extension UIScrollView {
     ///   - completion: The completion handler.
     ///
     private func setLoadingContentInset(_ contentInset: UIEdgeInsets, animated: Bool, completion: ((Bool) -> Void)? = nil) {
-        let animations: () -> Void = { self.contentInset = contentInset }
-
+        let loadControl = self.wrappedLoadControl()
+        
+        let animations: () -> Void = { self.contentInset = contentInset
+        
+            switch loadControl.direction {
+            case .vertical:
+                let scale = contentInset.bottom == 0 ? 0 : 1.5
+                loadControl.activityIndicatorView.transform = CGAffineTransform(scaleX: scale, y: scale)
+                
+            case .horizontal:
+                let scale = contentInset.right == 0 ? 0 : 1.5
+                loadControl.activityIndicatorView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            }
+        }
+        
         if animated {
             UIView.animate(withDuration: 0.25, delay: 0.0, options: [.beginFromCurrentState],
                            animations: animations, completion: completion)

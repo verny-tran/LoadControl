@@ -25,10 +25,14 @@ public class LoadControl : UIControl {
     /// The `parent scroll view` of the infinite <LoadControl>.
     weak public var scrollView: UIScrollView?
     
-    /// A flag that indicates whether loading `is in progress`.
+    /// A `flag` indicating that whether loading `is in progress`.
     public var isLoading: Bool = false
     
-    /// A flag that indicates whether the control `is initialized`
+    /// A `flag` indicating that the `loading pull-up` action
+    /// with `impact feedback` is enabled.
+    public var isHapticEnabled: Bool = true
+    
+    /// A `flag` indicating that whether the control `is initialized`
     internal var isInitialized: Bool = false
     
     /// The `activity Indicator` view.
