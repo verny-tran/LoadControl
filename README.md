@@ -5,11 +5,11 @@
 
 <h1 align="center"> LoadControl </h1>
 <p align="center"> A standard control that can initiate the loading of a scroll view’s contents.
-    [![CI Status](https://img.shields.io/travis/verny-tran/LoadControl}.svg?style=flat)](https://travis-ci.org/verny-tran/LoadControl})
-    [![Version](https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-    [![License](https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-    [![Platform](https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-    [![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
+    <a href="https://travis-ci.org/verny-tran/LoadControl"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat"></a>
+    <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
 </p>
 
 ## Features
