@@ -5,9 +5,9 @@
 <h1 align="center"> LoadControl </h1>
 
 [![CI Status](https://img.shields.io/travis/verny-tran/LoadControl}.svg?style=flat)](https://travis-ci.org/verny-tran/LoadControl})
-[![Version](https://img.shields.io/cocoapods/v/${POD_NAME}.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-[![License](https://img.shields.io/cocoapods/l/${POD_NAME}.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-[![Platform](https://img.shields.io/cocoapods/p/${POD_NAME}.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![Version](https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![License](https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![Platform](https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
 
 ## Example
 
