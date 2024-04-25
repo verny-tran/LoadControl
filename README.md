@@ -6,16 +6,22 @@
 <h1 align="center"> LoadControl </h1>
 <p align="center"> A standard control that can initiate the loading of a scroll view’s contents. </p>
 
+[![CI Status](https://img.shields.io/travis/verny-tran/LoadControl}.svg?style=flat)](https://travis-ci.org/verny-tran/LoadControl})
+[![Version](https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![License](https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![Platform](https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
+[![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
+
 ## Features
-- [x] Footer loading indicator
-- [x] Scroll, pull up to load (with haptic feedback)
-- [x] Horizontal loading for *collection views*
-- [x] Customizable *insets*, *offsets*, *margins* and *directions*
-- [ ] Customizable activity indicator
+- [x] Footer loading indicator.
+- [x] Scroll, pull up to load (with haptic feedback).
+- [x] Horizontal loading for *collection views*.
+- [x] Customizable *insets*, *offsets*, *margins* and *directions*.
+- [ ] Customizable activity indicator.
 
 ### The reversed **refresh control**
 
-Similar to that of the [UIRefreshControl](https://developer.apple.com/documentation/uikit/uirefreshcontrol):
+Similar to the behaviors and implementation of the [UIRefreshControl](https://developer.apple.com/documentation/uikit/uirefreshcontrol):
 ```swift
 self.tableView.refreshControl = UIRefreshControl()
 self.tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -41,18 +47,12 @@ private func load()
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-[![CI Status](https://img.shields.io/travis/verny-tran/LoadControl}.svg?style=flat)](https://travis-ci.org/verny-tran/LoadControl})
-[![Version](https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-[![License](https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-[![Platform](https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
-[![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
-
 - **Swift** `5.0+`
 - **Xcode** `13.0+`
 
-| Platform | Minimum Swift Version | Installation | Status |
-| -------- | --------------------- | ------------ | ------ |
-| iOS `13.0+` (UIKit) | [CocoaPods](#cocoapods), [Carthage](#carthage), [Swift Package Manager](#swift-package-manager), [Manual](#manually) | Fully Tested |
+| Platform | Installation | Status |
+| -------- | ------------ | ------ |
+| iOS `13.0+` (UIKit) | [CocoaPods](#cocoapods), [Carthage](#carthage), [Swift Package Manager](#swift-package-manager), [Manual](#manually) | Fully tested |
 
 ## Installation
 
@@ -62,7 +62,7 @@ The [Swift Package Manager](https://swift.org/package-manager/) is a tool for au
 
 Once you have your Swift package set up, adding **LoadControl** as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the Package list in Xcode.
 
-- File > Swift Packages > Add Package Dependency.
+- File → Swift Packages → Add Package Dependency.
 - Add `https://github.com/verny-tran/LoadControl.git`.
 - Select "Up to Next Major" with `1.0.0`.
 
