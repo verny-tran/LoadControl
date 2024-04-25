@@ -1,4 +1,8 @@
-# LoadControl
+<br />
+<p align="center" width="100%">
+    <img width="15%" src="https://github.com/verny-tran/LoadControl/blob/main/Resources/Icons/LoadControl.png"> 
+</p>
+<h1 align="center"> LoadControl </h1>
 
 [![CI Status](https://img.shields.io/travis/verny-tran/LoadControl}.svg?style=flat)](https://travis-ci.org/verny-tran/LoadControl})
 [![Version](https://img.shields.io/cocoapods/v/${POD_NAME}.svg?style=flat)](https://cocoapods.org/pods/LoadControl)
