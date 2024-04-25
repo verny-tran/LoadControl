@@ -42,7 +42,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-CocoaPods 1.0.0+
+**CocoaPods** `1.0.0+`
 
 ## Installation
 
@@ -56,6 +56,7 @@ pod 'LoadControl'
 ## Authors
 
 [Trần T. Dũng](https://github.com/verny-tran) (Verny), vernytran@icloud.com
+
 [Võ C. Kha](https://github.com/zachvoxwatt) (Zach), khavo0704@gmail.com
 
 ## License
