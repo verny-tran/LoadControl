@@ -4,6 +4,7 @@
 </p>
 
 <h1 align="center"> LoadControl </h1>
+<br/>
 
 <p align="center"> A standard control that can initiate the loading of a scroll view’s contents.
     <a href="https://travis-ci.org/verny-tran/LoadControl"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
