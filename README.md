@@ -53,6 +53,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 | Platform | Installation | Status |
 | -------- | ------------ | ------ |
 | iOS `13.0+` (UIKit) | [CocoaPods](#cocoapods), [Carthage](#carthage), [Swift Package Manager](#swift-package-manager), [Manual](#manually) | Fully tested |
+| macOS `10.12+` (UIKit) | [CocoaPods](#cocoapods), [Carthage](#carthage), [Swift Package Manager](#swift-package-manager), [Manual](#manually) | Testing |
 
 ## Installation
 
