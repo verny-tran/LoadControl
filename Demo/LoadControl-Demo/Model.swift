@@ -8,9 +8,8 @@
 import Foundation
 
 struct Model: Codable {
-    var postId: Int?
+    var userId: Int?
     var id: Int?
-    var name: String?
-    var email: String?
+    var title: String?
     var body: String?
 }

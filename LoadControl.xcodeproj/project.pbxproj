@@ -68,9 +68,9 @@
 		D658882D2BD77F8700F5422A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D65888202BD77F3F00F5422A /* UIView.swift */,
 				D65888212BD77F3F00F5422A /* UIScrollView.swift */,
 				D658881E2BD77F3F00F5422A /* UITableView.swift */,
-				D65888202BD77F3F00F5422A /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

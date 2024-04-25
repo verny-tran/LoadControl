@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     private func load() {
         self.viewModel.load(completion: { [weak self] in
             guard let `self` = self else { return }
+            self.tableView.loadControl?.isHapticEnabled = self.viewModel.isEnded
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -65,7 +66,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = self.viewModel.models[indexPath.row].email
+        cell.textLabel?.text = self.viewModel.models[safe: indexPath.row]?.title?.capitalized
         
         return cell
     }

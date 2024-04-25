@@ -30,7 +30,7 @@ public class LoadControl : UIControl {
     
     /// A `flag` indicating that the `loading pull-up` action
     /// with `impact feedback` is enabled.
-    public var isHapticEnabled: Bool = true
+    public var isHapticEnabled: Bool = false
     
     /// A `flag` indicating that whether the control `is initialized`
     internal var isInitialized: Bool = false
