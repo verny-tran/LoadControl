@@ -4,9 +4,8 @@
 </p>
 
 <h1 align="center"> LoadControl </h1>
-<br/>
-
-<p align="center"> A standard control that can initiate the loading of a scroll view’s contents.
+<p align="center"> A standard control that can initiate the loading of a scroll view’s contents. </p>
+<p align="center">
     <a href="https://travis-ci.org/verny-tran/LoadControl"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat"></a>
