@@ -21,6 +21,7 @@
 		D65888FC2BD7A25F00F5422A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888242BD77F4000F5422A /* Async.swift */; };
 		D65888FD2BD7A25F00F5422A /* Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888232BD77F4000F5422A /* Swizzling.swift */; };
 		D65888FE2BD7A25F00F5422A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65888222BD77F4000F5422A /* ObjectAssociation.swift */; };
+		D69F13D12BDB72250020E221 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F13CE2BDB72250020E221 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		D65888C72BD79AA900F5422A /* LoadControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadControl.h; sourceTree = "<group>"; };
 		D65888CC2BD79AA900F5422A /* LoadControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65888D12BD79AA900F5422A /* LoadControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadControlTests.swift; sourceTree = "<group>"; };
+		D69F13CD2BDB72250020E221 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		D69F13CE2BDB72250020E221 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D6ECA85A2BD63EAA0082EB26 /* LoadControl.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LoadControl.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +105,14 @@
 			path = LoadControlTests;
 			sourceTree = "<group>";
 		};
+		D69F13CF2BDB72250020E221 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D69F13CE2BDB72250020E221 /* main.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		D6ECA7F92BD6396A0082EB26 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +121,8 @@
 				D6574B8B2BDAB158009D1F02 /* CODE_OF_CONDUCT.md */,
 				D6ECA85A2BD63EAA0082EB26 /* LoadControl.podspec */,
 				D65888C72BD79AA900F5422A /* LoadControl.h */,
+				D69F13CD2BDB72250020E221 /* Package.swift */,
+				D69F13CF2BDB72250020E221 /* Sources */,
 				D65888C62BD79AA900F5422A /* LoadControl */,
 				D65888D02BD79AA900F5422A /* LoadControlTests */,
 				D6ECA8042BD6396A0082EB26 /* Products */,
@@ -242,6 +255,7 @@
 				D65888F92BD7A25F00F5422A /* Haptic.swift in Sources */,
 				D65888FA2BD7A25F00F5422A /* UITableView.swift in Sources */,
 				D65888FB2BD7A25F00F5422A /* LoadControl.swift in Sources */,
+				D69F13D12BDB72250020E221 /* main.swift in Sources */,
 				D65888FC2BD7A25F00F5422A /* Async.swift in Sources */,
 				D65888FD2BD7A25F00F5422A /* Swizzling.swift in Sources */,
 				D65888FE2BD7A25F00F5422A /* ObjectAssociation.swift in Sources */,
