@@ -6,11 +6,14 @@
 <h1 align="center"> LoadControl </h1>
 <p align="center"> A standard control that can initiate the loading of a scroll view’s contents. </p>
 <p align="center">
-    <a href="https://travis-ci.org/verny-tran/LoadControl"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
+    <a href="https://github.com/verny-tran/LoadControl/blob/main/.github/workflows/swift.yml"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
+    <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
+    <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat"></a>
-    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/p/LoadControl.svg?style=flat"></a>
-    <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/badge/iOS-13.0%2B-blue.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/badge/Xcode-13.0%2B-blue.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg?style=flat"></a>
 </p>
 
 ## Features
