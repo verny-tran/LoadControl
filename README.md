@@ -48,12 +48,12 @@ private func load()
 
 ### Swizzling
 
-Be aware that this category [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) `setContentOffset` 
+Be aware that this extension [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) `setContentOffset` 
 and `setContentSize` on [UIScrollView](https://developer.apple.com/documentation/uikit/uiscrollview).
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from the **Demo** directory first.
 
 ### Basics
 
@@ -152,7 +152,11 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
   > The `LoadControl.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ## Inspiration
-The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) from [Andrej Mihajlov (pronebird)](https://github.com/pronebird).
+The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) by [Andrej Mihajlov `pronebird`](https://github.com/pronebird). Now you don't need the following line in your `Bridging-Header.h` file anymore.
+
+```objc
+#import <LoadControl/LoadControl.h>
+```
 
 ## Authors
 
