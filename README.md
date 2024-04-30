@@ -46,9 +46,16 @@ self.tableView.loadControl?.addTarget(self, action: #selector(load), for: .value
 private func load()
 ```
 
+### Swizzling
+
+Be aware that this category [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) `setContentOffset` 
+and `setContentSize` on [UIScrollView](https://developer.apple.com/documentation/uikit/uiscrollview).
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+### Basics
 
 ## Requirements
 - **Swift** `5.1+`
@@ -65,11 +72,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of **Swift** code and is integrated into the `swift` compiler.
 
-Once you have your Swift package set up, adding **LoadControl** as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the Package list in **Xcode**.
+Once you have your Swift package set up, adding **LoadControl** as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the package list in **Xcode**.
 
-- **File** → **Swift Packages** → **Add Package Dependency**.
-- Add `https://github.com/verny-tran/LoadControl.git`.
-- Select **"Branch"** with `main`.
+1. **File** → **Swift Packages** → **Add Package Dependency**.
+2. Add `https://github.com/verny-tran/LoadControl.git`.
+3. Select **"Branch"** with `main`.
 
 ```swift
 dependencies: [
@@ -112,38 +119,40 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 #### Embedded Framework
 
-- Open up **Terminal**, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+1. Open up **Terminal**, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
 
   ```bash
   $ git init
   ```
 
-- Add **LoadControl** as a git [submodule](https://git-scm.com/docs/git-submodule) by running the following command:
+2. Add **LoadControl** as a git [submodule](https://git-scm.com/docs/git-submodule) by running the following command:
 
   ```bash
   $ git submodule add https://github.com/verny-tran/LoadControl.git
   ```
 
-- Open the new `LoadControl` folder, and drag the `LoadControl.xcodeproj` into the **Project Navigator** of your application's **Xcode** project.
+3. Open the new `LoadControl` folder, and drag the `LoadControl.xcodeproj` into the **Project Navigator** of your application's **Xcode** project.
 
   > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other **Xcode** groups does not matter.
 
-- Select the `LoadControl.xcodeproj` in the **Project Navigator** and verify the deployment target matches that of your application target.
-- Next, select your application project in the **Project Navigator** (blue project icon) to navigate to the target configuration window and select the application target under the **"Targets"** heading in the sidebar.
-- In the tab bar at the top of that window, open the **"General"** panel.
-- Click on the `+` button under the **"Embedded Binaries"** section.
-- You will see two different `LoadControl.xcodeproj` folders each with two different versions of the `LoadControl.framework` nested inside a `Products` folder.
+4. Select the `LoadControl.xcodeproj` in the **Project Navigator** and verify the deployment target matches that of your application target.
+5. Next, select your application project in the **Project Navigator** (blue project icon) to navigate to the target configuration window and select the application target under the **"Targets"** heading in the sidebar.
+6. In the tab bar at the top of that window, open the **"General"** panel.
+7. Click on the `+` button under the **"Embedded Binaries"** section.
+8. You will see two different `LoadControl.xcodeproj` folders each with two different versions of the `LoadControl.framework` nested inside a `Products` folder.
 
   > It does not matter which `Products` folder you choose from, but it does matter whether you choose the top or bottom `LoadControl.framework`.
 
-- Select the top `LoadControl.framework` for **iOS**.
+9. Select the top `LoadControl.framework` for **iOS**.
 
   > You can verify which one you selected by inspecting the build log for your project. The build target for `LoadControl` will be listed as `LoadControlKit`.
 
-- And that's it!
+10. And that's it!
 
   > The `LoadControl.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
+## Inspiration
+The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) from [Andrej Mihajlov (pronebird)](https://github.com/pronebird).
 
 ## Authors
 
