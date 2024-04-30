@@ -65,11 +65,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of **Swift** code and is integrated into the `swift` compiler.
 
-Once you have your Swift package set up, adding **LoadControl** as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the Package list in Xcode.
+Once you have your Swift package set up, adding **LoadControl** as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift` or the Package list in **Xcode**.
 
-- File → Swift Packages → Add Package Dependency.
+- **File** → **Swift Packages** → **Add Package Dependency**.
 - Add `https://github.com/verny-tran/LoadControl.git`.
-- Select "Branch" with `main`.
+- Select **"Branch"** with `main`.
 
 ```swift
 dependencies: [
@@ -85,7 +85,7 @@ Normally you'll want to depend on the `LoadControl` target:
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate **LoadControl** into your Xcode project using **CocoaPods**, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate **LoadControl** into your **Xcode** project using **CocoaPods**, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -100,7 +100,7 @@ end
 
 ### Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate **LoadControl** into your Xcode project using **Carthage**, specify it in your `Cartfile`:
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate **LoadControl** into your **Xcode** project using **Carthage**, specify it in your `Cartfile`:
 
 ```ogdl
 github "verny-tran/LoadControl"
@@ -112,26 +112,26 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 #### Embedded Framework
 
-- Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+- Open up **Terminal**, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
 
   ```bash
   $ git init
   ```
 
-- Add LoadControl as a git [submodule](https://git-scm.com/docs/git-submodule) by running the following command:
+- Add **LoadControl** as a git [submodule](https://git-scm.com/docs/git-submodule) by running the following command:
 
   ```bash
   $ git submodule add https://github.com/verny-tran/LoadControl.git
   ```
 
-- Open the new `LoadControl` folder, and drag the `LoadControl.xcodeproj` into the Project Navigator of your application's Xcode project.
+- Open the new `LoadControl` folder, and drag the `LoadControl.xcodeproj` into the **Project Navigator** of your application's **Xcode** project.
 
-  > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
+  > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other **Xcode** groups does not matter.
 
-- Select the `LoadControl.xcodeproj` in the Project Navigator and verify the deployment target matches that of your application target.
-- Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the "Targets" heading in the sidebar.
-- In the tab bar at the top of that window, open the "General" panel.
-- Click on the `+` button under the "Embedded Binaries" section.
+- Select the `LoadControl.xcodeproj` in the **Project Navigator** and verify the deployment target matches that of your application target.
+- Next, select your application project in the **Project Navigator** (blue project icon) to navigate to the target configuration window and select the application target under the **"Targets"** heading in the sidebar.
+- In the tab bar at the top of that window, open the **"General"** panel.
+- Click on the `+` button under the **"Embedded Binaries"** section.
 - You will see two different `LoadControl.xcodeproj` folders each with two different versions of the `LoadControl.framework` nested inside a `Products` folder.
 
   > It does not matter which `Products` folder you choose from, but it does matter whether you choose the top or bottom `LoadControl.framework`.
