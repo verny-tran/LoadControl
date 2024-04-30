@@ -23,9 +23,13 @@
 - [x] Customizable *insets*, *offsets*, *margins* and *directions*.
 - [ ] Customizable activity indicator.
 
+|     Refresh Control    |   Load Control  |
+|      :-----------:     |      :----:     |
+| ![](https://github.com/verny-tran/LoadControl/blob/main/Resources/Images/Refresh.gif) | ![](https://github.com/verny-tran/LoadControl/blob/main/Resources/Images/Load.gif) |
+
 ### The reversed **refresh control**
 
-Similar to the behaviors and implementation of the [UIRefreshControl](https://developer.apple.com/documentation/uikit/uirefreshcontrol):
+Similar to the behaviors and implementation of the [**UIRefreshControl**](https://developer.apple.com/documentation/uikit/uirefreshcontrol):
 ```swift
 self.tableView.refreshControl = UIRefreshControl()
 self.tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -34,7 +38,7 @@ self.tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: 
 private func refresh()
 ```
 
-The **LoadControl** is the *reversed* version of a **refresh control**, use to load more items from a list of contents. The simplest use-case is adding an action selector to a target with the [UIScrollView](https://developer.apple.com/documentation/uikit/uiscrollview) extension:
+The **LoadControl** is the *reversed* version of a **refresh control**, use to load more items from a list of contents. The simplest use-case is adding an action selector to a target with the [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview) extension:
 
 ```swift
 import LoadControl
@@ -48,8 +52,8 @@ private func load()
 
 ### Swizzling
 
-Be aware that this extension [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) `setContentOffset` 
-and `setContentSize` on [UIScrollView](https://developer.apple.com/documentation/uikit/uiscrollview).
+Be aware that this extension [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) the setters of `.contentOffset` 
+and `.contentSize` on [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview).
 
 ## Example
 
@@ -87,7 +91,7 @@ dependencies: [
 Normally you'll want to depend on the `LoadControl` target:
 
 ```swift
-.product(name: "verny-tran", package: "LoadControl")
+.product(name: "LoadControl", package: "LoadControl")
 ```
 
 ### CocoaPods
