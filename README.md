@@ -24,7 +24,7 @@
 - [ ] Customizable activity indicator.
 
 |     Refresh Control    |   Load Control  |
-|      :-----------:     |      :----:     |
+|         :----:         |      :----:     |
 | ![](https://github.com/verny-tran/LoadControl/blob/main/Resources/Images/Refresh.gif) | ![](https://github.com/verny-tran/LoadControl/blob/main/Resources/Images/Load.gif) |
 
 ### The reversed **refresh control**
