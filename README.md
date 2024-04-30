@@ -152,7 +152,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
   > The `LoadControl.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ## Inspiration
-The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) by [Andrej Mihajlov `pronebird`](https://github.com/pronebird). Now you don't need the following line in your `Bridging-Header.h` file anymore.
+The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) by [Andrej Mihajlov (`pronebird`)](https://github.com/pronebird). Now you don't need the following line in your `Bridging-Header.h` file anymore.
 
 ```objc
 #import <LoadControl/LoadControl.h>
@@ -162,6 +162,10 @@ The features of **LoadControl** is heavily inspired by, and is a *totally Swifte
 
 - **Trần T. Dũng** (Verny), vernytran@icloud.com
 - **Võ C. Kha** (Zach), khavo0704@gmail.com
+
+### Contact
+
+Follow and contact me on [LinkedIn](https://www.linkedin.com/in/vernytran) or [Medium](https://medium.com/@vernytran). If you find an issue, [open a ticket](https://github.com/verny-tran/LoadControl/issues/new). Pull requests are warmly welcome as well.
 
 ## License
 
