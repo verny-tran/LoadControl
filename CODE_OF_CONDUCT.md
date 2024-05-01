@@ -1,4 +1,6 @@
-# Contributor Covenant Code of Conduct
+# LoadControl Code of Conduct
+
+LoadControl strongly values contributors from anywhere, regardless of gender, sexual orientation, disability, physical appearance, body size, race, or religion. As a result, the LoadControl team has agreed to and enforces this code of conduct in order to provide a harassment-free experience for everyone who participates in the development of LoadControl.
 
 ## Our Pledge
 
