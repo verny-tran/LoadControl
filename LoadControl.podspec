@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.readme                = 'https://github.com/verny-tran/LoadControl/blob/main/README.md'
     
   s.source                = { :git => 'https://github.com/verny-tran/LoadControl.git', :tag => 'v1.0.0' }
-  s.source_files          = 'Sources/**/*'
+  s.source_files          = 'LoadControl/**/*'
   
   s.swift_versions        = ['5.0']
   
