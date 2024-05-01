@@ -66,11 +66,39 @@ $ pod try LoadControl
 
 ### Basics
 
-In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler block's function is to do asynchronous tasks, such as networking or database fetch, and update your scroll view or scroll view subclass.
+In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler block's function is to do asynchronous tasks, such as networking or database fetch, and update your scroll view or it's subclass.
 
 The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the table view by adding new rows and sections, and then use `endLoading()` to end the load control animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
 
-Ensure that any interactions with UIKit or methods supplied by **LoadControl** occur on the main queue. In Swift, use [DispatchQueue.main.async(group:qos:flags:execute:)](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on the main queue. Many people make the mistake of utilizing an external reference to a table or collection view within the handler method. Do not do this. This causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the handler block.
+Ensure that any interactions with UIKit or methods supplied by **LoadControl** occur on the main queue. In Swift, use [`async(group:qos:flags:execute:)`](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on [`DispatchQueue.main`](https://developer.apple.com/documentation/dispatch/dispatchqueue/1781006-main). Many people make the mistake of utilizing an external reference to a table or collection view within the handler method. Do not do this. This causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the handler block.
+
+### Collection view quirks
+
+[**UICollectionView**](https://developer.apple.com/documentation/uikit/uicollectionview)'s [`reloadData()`](https://developer.apple.com/documentation/uikit/uicollectionview/1618078-reloaddata) resets the '.contentOffset' value. Instead use [`performBatchUpdates(_:completion:)`](https://developer.apple.com/documentation/uikit/uicollectionview/1618045-performbatchupdates) if possible.
+
+```swift
+self.collectionView.loadControl?.endLoading(completion: { scrollView in
+    let collectionView = scrollView as? UICollectionView
+    
+    collectionView?.performBatchUpdates({ () -> Void in
+        // Update collection view
+    })
+})
+```
+
+If you want your collection view to load contents *horizontally*, set the `.direction` value to `.horizontal`:
+
+```swift
+self.collectionView.loadControl?.direction = .horizontal
+```
+
+### Begin loading programmatically
+
+### Prevent infinite scroll
+
+### Seamlessly preload content
+
+### Adjust layout attributes
 
 ## Requirements
 - **Swift** `5.1+`
