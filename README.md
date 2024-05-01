@@ -56,7 +56,7 @@ private func load()
 Be aware that this extension [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) the setters of `.contentOffset` 
 and `.contentSize` on [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview).
 
-### Customizable activity indicator & SwiftUI support
+### Customizable indicator & SwiftUI support
 
 Currently, the **LoadControl** does not permit customising the loading animation; instead, it simply displays the default [**UIActivityIndicatorView**](https://developer.apple.com/documentation/uikit/uiactivityindicatorview). Additionally, a [**SwiftUI**](https://developer.apple.com/xcode/swiftui) version is missing. Both of these features will be *available soon*.
 
@@ -70,11 +70,17 @@ $ pod try LoadControl
 
 ### Basics
 
-In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler's function is to do asynchronous tasks, such as networking or database fetch, and update your *scroll view* or it's subclass.
+In order to enable infinite loading control you have to provide an action handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler's function is to do asynchronous tasks, such as networking or database fetch, and update your *scroll view* or it's subclass.
 
 The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the *table view* by adding new rows and sections, and then use `endLoading()` to end the animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
 
-Ensure that any interactions with [**UIKit**](https://developer.apple.com/documentation/uikit) or methods supplied by **LoadControl** occur on the main queue. In Swift, use [`async(group:qos:flags:execute:)`](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on [`DispatchQueue.main`](https://developer.apple.com/documentation/dispatch/dispatchqueue/1781006-main). Many people make the mistake of utilizing an external reference to a *table or collection view* within the handler method. Do not do this since it causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the block.
+Ensure that any interactions with [**UIKit**](https://developer.apple.com/documentation/uikit) or methods supplied by **LoadControl** occur on the main queue. In Swift, use [`async(group:qos:flags:execute:)`](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on [`DispatchQueue.main`](https://developer.apple.com/documentation/dispatch/dispatchqueue/1781006-main). Many people make the mistake of utilizing an external reference to a *table or collection view* within the action handler. Do not do this since it causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the block.
+
+To access the associated container scroll view of the **load control**, make a call to the property `.scrollView`:
+
+```swift
+self.loadControl?.scrollView is UITableView
+```
 
 ### Collection view quirks
 
@@ -104,23 +110,75 @@ You can utilize the infinite loading flow to load initial data or use `beginLoad
 self.tableView.loadControl?.beginLoading(true)
 ```
 
+To check if the **load control** is currently loading or not, access the property `.isLoading`:
+
+```swift
+/// Is currently in a middle of a loading event.
+print(self.tableView.loadControl?.isLoading)
+```
+
 ### Prevent infinite scroll
 
 Sometimes you need to stop the infinite loading from continuing. For example, if your search `API` returns no further results, it makes no sense to continue sending calls or displaying the *activity indicator*.
 
 ```swift
 /// Change the flag value just before a load more event occurs.
-self.tableView.loadControl?.shouldShowLoadingHandler = self.currentPage < 5
+self.tableView.loadControl?.shouldShowActivityIndicator = self.currentPage < 5
 
 /// Or set ``true`` to allow or ``false`` to prevent it from triggering.
-self.tableView.loadControl?.shouldShowLoadingHandler = self.viewModel.isEnded
+self.tableView.loadControl?.shouldShowActivityIndicator = self.viewModel.isEnded
 ```
 
 ### Seamlessly preload content
 
+Perhaps you want your content to flow without ever displaying an activity indicator. **LoadControl** allows you to provide an offset in points that will be utilized to start the preloader before the user reaches the bottom of the scroll view. A proper balance between the number of results loaded each time and a large enough offset should provide your users with a satisfactory experience. Most likely, you will have to develop your own method for combining those based on the type of content and device size.
+
+```swift
+/// Preload additional data 200 screen points prior to hitting the bottom of the scroll view.
+self.tableView.loadControl?.triggerOffset = 200
+```
+
 ### Adjust layout attributes
 
+Some layout attributes of the **LoadControl** is adjustable, including *insets*, *offsets* and *margins*. Try adjusting these settings to find what best meets your demands:
+
+```swift
+/// Indicator view inset. Essentially `is equal to indicator view height`.
+self.tableView.loadControl?.indicatorInset = 50
+    
+/// `Extra padding` to push indicator view outside view bounds.
+/// Used in case `when content size` is `smaller than view bounds`.
+self.tableView.loadControl?.extraEndInset = 0
+    
+/// Flag `used to return user back to start` of scroll view when loading initial content.
+self.tableView.loadControl?.scrollToStartWhenFinished = false
+    
+/// Indicator view margin: `top & bottom for vertical`
+/// direction or `left & right for horizontal` direction.
+self.tableView.loadControl?.indicatorMargin = 25
+```
+
 ### Haptic feedback
+
+For example, suppose you have ran out of data and are at the end of the list. **LoadControl** mimics the [**UIRefreshControl**](https://developer.apple.com/documentation/uikit/uirefreshcontrol)'s *auto shrinking and disappearing* behaviour. It includes some haptic feedback ([**UIImpactFeedbackGenerator**](https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator), similar to that of the **refresh control**.
+
+This haptic feedback *is not activated by default* while scrolling across the middle of the list. When you reach the end of the data in the list, enable it by following the below example:
+
+```swift
+self.viewModel.load(completion: { [weak self] in
+    guard let `self` = self else { return }
+    
+    /// If you've run out of data, enable 'haptic feedback'.
+    self.tableView.loadControl?.isHapticEnabled = self.viewModel.isEnded
+    
+    DispatchQueue.main.async {
+        self.tableView.reloadData()
+        self.tableView.loadControl?.endLoading()
+    }
+})
+```
+
+I'm still unsure whether I should give it the ability to adjust the *intensity* of the feedback. Currently, it is the same as the [**UIRefreshControl**](https://developer.apple.com/documentation/uikit/uirefreshcontrol), which has the [**FeedbackStyle**](https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator/feedbackstyle) set to `.medium`.
 
 ## Requirements
 - **Swift** `5.1+`

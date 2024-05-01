@@ -74,7 +74,7 @@ public class LoadControl : UIControl {
     /// Infinite scroll `allowed block`.
     /// Return ``false`` to `block the infinite scroll`.
     /// Useful to `stop requests` when you have `shown all results`, etc.
-    public var shouldShowLoadingHandler: Bool?
+    public var shouldShowActivityIndicator: Bool?
     
     /// Checks if `UIScrollView is empty`.
     internal var hasLoadingContent: Bool {

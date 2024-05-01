@@ -134,7 +134,7 @@ extension UIScrollView {
         if loadControl.isLoading { return }
         
         /// Only `show the loading` if `it is allowed`.
-        if loadControl.shouldShowLoadingHandler ?? true {
+        if loadControl.shouldShowActivityIndicator ?? true {
             self.startLoadingAnimation(scrollToBottom)
             
             /// This will `delay handler execution` until scroll `deceleration`.
