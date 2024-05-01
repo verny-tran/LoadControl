@@ -8,6 +8,7 @@
 <p align="center">
     <a href="https://github.com/verny-tran/LoadControl/blob/main/.github/workflows/swift.yml"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat"></a>
+    <a href="https://github.com/verny-tran/LoadControl?tab=coc-ov-file"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat"></a>
     <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat"></a>
     <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat"></a>
@@ -70,7 +71,7 @@ $ pod try LoadControl
 
 ### Basics
 
-In order to enable infinite loading control you have to provide an action handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler's function is to do asynchronous tasks, such as networking or database fetch, and update your *scroll view* or it's subclass.
+In order to enable infinite **load control** you have to provide an action handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler's function is to do asynchronous tasks, such as networking or database fetch, and update your *scroll view* or it's subclass.
 
 The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the *table view* by adding new rows and sections, and then use `endLoading()` to end the animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
 
