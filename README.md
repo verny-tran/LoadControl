@@ -18,11 +18,11 @@
 
 ## Features
 - [x] Footer loading indicator.
-- [x] Scroll, pull up to load with paging behavior (and haptic feedback).
+- [x] Scroll, pull up to load with paging behavior (and *haptic feedback*).
 - [x] Horizontal loading for *collection views*.
 - [x] Customizable *insets*, *offsets*, *margins* and *directions*.
-- [ ] Customizable activity indicator.
-- [ ] SwiftUI support.
+- [ ] Customizable *activity indicator*.
+- [ ] **SwiftUI** support.
 
 |     Refresh Control    |   Load Control  |
 |         :----:         |      :----:     |
@@ -39,7 +39,7 @@ self.tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: 
 private func refresh()
 ```
 
-The **LoadControl** is the *reversed* version of a **refresh control**, use to load more items from a list of contents. The simplest use-case is adding an action selector to a target with the [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview) extension:
+The **load control** is the *reversed* version of a **refresh control**, use to load more items from a list of contents. The simplest use-case is adding an action selector to a target with the [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview) extension:
 
 ```swift
 import LoadControl
@@ -56,6 +56,10 @@ private func load()
 Be aware that this extension [swizzles](https://medium.com/@pallavidipke07/method-swizzling-in-swift-5c9d9ab008e4) the setters of `.contentOffset` 
 and `.contentSize` on [**UIScrollView**](https://developer.apple.com/documentation/uikit/uiscrollview).
 
+### Customizable activity indicator & SwiftUI support
+
+Currently, the **LoadControl** does not permit customising the loading animation; instead, it simply displays the default [**UIActivityIndicatorView**](https://developer.apple.com/documentation/uikit/uiactivityindicatorview). Additionally, a [**SwiftUI**](https://developer.apple.com/xcode/swiftui) version is missing. Both of these features will be *available soon*.
+
 ## Example
 
 This component comes with example app written in **Swift**. To run the example project, if you use [CocoaPods](https://cocoapods.org), you can try it by running:
@@ -66,15 +70,15 @@ $ pod try LoadControl
 
 ### Basics
 
-In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler block's function is to do asynchronous tasks, such as networking or database fetch, and update your scroll view or it's subclass.
+In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler's function is to do asynchronous tasks, such as networking or database fetch, and update your *scroll view* or it's subclass.
 
-The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the table view by adding new rows and sections, and then use `endLoading()` to end the load control animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
+The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the *table view* by adding new rows and sections, and then use `endLoading()` to end the animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
 
-Ensure that any interactions with UIKit or methods supplied by **LoadControl** occur on the main queue. In Swift, use [`async(group:qos:flags:execute:)`](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on [`DispatchQueue.main`](https://developer.apple.com/documentation/dispatch/dispatchqueue/1781006-main). Many people make the mistake of utilizing an external reference to a table or collection view within the handler method. Do not do this. This causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the handler block.
+Ensure that any interactions with [**UIKit**](https://developer.apple.com/documentation/uikit) or methods supplied by **LoadControl** occur on the main queue. In Swift, use [`async(group:qos:flags:execute:)`](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on [`DispatchQueue.main`](https://developer.apple.com/documentation/dispatch/dispatchqueue/1781006-main). Many people make the mistake of utilizing an external reference to a *table or collection view* within the handler method. Do not do this since it causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the block.
 
 ### Collection view quirks
 
-[**UICollectionView**](https://developer.apple.com/documentation/uikit/uicollectionview)'s [`reloadData()`](https://developer.apple.com/documentation/uikit/uicollectionview/1618078-reloaddata) resets the '.contentOffset' value. Instead use [`performBatchUpdates(_:completion:)`](https://developer.apple.com/documentation/uikit/uicollectionview/1618045-performbatchupdates) if possible.
+[**UICollectionView**](https://developer.apple.com/documentation/uikit/uicollectionview)'s [`reloadData()`](https://developer.apple.com/documentation/uikit/uicollectionview/1618078-reloaddata) resets the `.contentOffset` value. Instead use [`performBatchUpdates(_:completion:)`](https://developer.apple.com/documentation/uikit/uicollectionview/1618045-performbatchupdates) if possible.
 
 ```swift
 self.collectionView.loadControl?.endLoading(completion: { scrollView in
@@ -94,11 +98,29 @@ self.collectionView.loadControl?.direction = .horizontal
 
 ### Begin loading programmatically
 
+You can utilize the infinite loading flow to load initial data or use `beginLoading(_:)` to retrieve additional. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is an excellent spot to load initial data, but the decision is entirely up to you. When the`scrollToBottom` option is set to `true` (and it is `true` by default), the **load control** will try to scroll down to display the *activity indicator view*. Keep in mind that scrolling does not occur if the user interacts with the scroll view.
+
+```swift
+self.tableView.loadControl?.beginLoading(true)
+```
+
 ### Prevent infinite scroll
+
+Sometimes you need to stop the infinite loading from continuing. For example, if your search `API` returns no further results, it makes no sense to continue sending calls or displaying the *activity indicator*.
+
+```swift
+/// Change the flag value just before a load more event occurs.
+self.tableView.loadControl?.shouldShowLoadingHandler = self.currentPage < 5
+
+/// Or set ``true`` to allow or ``false`` to prevent it from triggering.
+self.tableView.loadControl?.shouldShowLoadingHandler = self.viewModel.isEnded
+```
 
 ### Seamlessly preload content
 
 ### Adjust layout attributes
+
+### Haptic feedback
 
 ## Requirements
 - **Swift** `5.1+`
