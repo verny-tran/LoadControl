@@ -58,7 +58,7 @@ and `.contentSize` on [**UIScrollView**](https://developer.apple.com/documentati
 
 ### Customizable indicator & SwiftUI support
 
-Currently, the **LoadControl** does not permit customising the loading animation; instead, it simply displays the default [**UIActivityIndicatorView**](https://developer.apple.com/documentation/uikit/uiactivityindicatorview). Additionally, a [**SwiftUI**](https://developer.apple.com/xcode/swiftui) version is missing. Both of these features will be *available soon*.
+Currently, the **LoadControl** does not permit customizing the loading animation; instead, it simply displays the default [**UIActivityIndicatorView**](https://developer.apple.com/documentation/uikit/uiactivityindicatorview). Additionally, a [**SwiftUI**](https://developer.apple.com/xcode/swiftui) version is missing. Both of these features will be *available soon*.
 
 ## Example
 
@@ -79,7 +79,7 @@ Ensure that any interactions with [**UIKit**](https://developer.apple.com/docume
 To access the associated container scroll view of the **load control**, make a call to the property `.scrollView`:
 
 ```swift
-self.loadControl?.scrollView is UITableView
+if self.loadControl?.scrollView is UITableView
 ```
 
 ### Collection view quirks
@@ -160,7 +160,7 @@ self.tableView.loadControl?.indicatorMargin = 25
 
 ### Haptic feedback
 
-For example, suppose you have ran out of data and are at the end of the list. **LoadControl** mimics the [**UIRefreshControl**](https://developer.apple.com/documentation/uikit/uirefreshcontrol)'s *auto shrinking and disappearing* behaviour. It includes some haptic feedback ([**UIImpactFeedbackGenerator**](https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator), similar to that of the **refresh control**.
+For example, suppose you have ran out of data and are at the end of the list. **LoadControl** mimics the [**UIRefreshControl**](https://developer.apple.com/documentation/uikit/uirefreshcontrol)'s *auto shrinking and disappearing* behaviour. It includes some haptic feedback ([**UIImpactFeedbackGenerator**](https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator)), similar to that of the **refresh control**.
 
 This haptic feedback *is not activated by default* while scrolling across the middle of the list. When you reach the end of the data in the list, enable it by following the below example:
 
