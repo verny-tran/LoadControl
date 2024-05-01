@@ -125,16 +125,16 @@ public class LoadControl : UIControl {
     
     /// May be used to indicate to the `refreshControl` that an `external event` has initiated the `loading action`.
     ///
-    public func beginLoading() {
-        self.scrollView?.beginLoadingIfNeeded(true)
+    public func beginLoading(_ scrollToBottom: Bool = true) {
+        self.scrollView?.beginLoadingIfNeeded(scrollToBottom)
     }
 
     /// Must be explicitly `called when the refreshing has completed`.
     ///
-    public func endLoading() {
+    public func endLoading(completion: ((UIScrollView) -> Void)? = nil) {
         guard self.isLoading else { return }
         
-        Async.delay(.milliseconds(500)) { self.scrollView?.stopLoadingAnimation(completion: nil) }
+        Async.delay(.milliseconds(500)) { self.scrollView?.stopLoadingAnimation(completion: completion) }
     }
     
     /// Must be explicitly `called when the refreshing has removed`.

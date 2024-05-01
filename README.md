@@ -18,10 +18,11 @@
 
 ## Features
 - [x] Footer loading indicator.
-- [x] Scroll, pull up to load (with haptic feedback).
+- [x] Scroll, pull up to load with paging behavior (and haptic feedback).
 - [x] Horizontal loading for *collection views*.
 - [x] Customizable *insets*, *offsets*, *margins* and *directions*.
 - [ ] Customizable activity indicator.
+- [ ] SwiftUI support.
 
 |     Refresh Control    |   Load Control  |
 |         :----:         |      :----:     |
@@ -57,9 +58,19 @@ and `.contentSize` on [**UIScrollView**](https://developer.apple.com/documentati
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the **Demo** directory first.
+This component comes with example app written in **Swift**. To run the example project, if you use [CocoaPods](https://cocoapods.org), you can try it by running:
+
+```bash
+$ pod try LoadControl
+```
 
 ### Basics
+
+In order to enable infinite loading control you have to provide a handler as target selector using [`addTarget(_:action:for:)`](https://developer.apple.com/documentation/uikit/uicontrol/1618259-addtarget). The block you provide is executed each time the load control detects that more data needs to be provided. The handler block's function is to do asynchronous tasks, such as networking or database fetch, and update your scroll view or scroll view subclass.
+
+The block is called from the main queue, so make sure to send any long-running jobs to the background queue. Once you have received fresh data, update the table view by adding new rows and sections, and then use `endLoading()` to end the load control animations and reset the state of the control's components. [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) is a nice location to add the target selector.
+
+Ensure that any interactions with UIKit or methods supplied by **LoadControl** occur on the main queue. In Swift, use [DispatchQueue.main.async(group:qos:flags:execute:)](https://developer.apple.com/documentation/dispatch/dispatchqueue/2016098-async) to conduct UI-related calls on the main queue. Many people make the mistake of utilizing an external reference to a table or collection view within the handler method. Do not do this. This causes a cyclic retention. Instead, send the instance of scroll view or scroll view subclass as the first parameter to the handler block.
 
 ## Requirements
 - **Swift** `5.1+`
@@ -156,7 +167,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
   > The `LoadControl.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ## Inspiration
-The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* version of the project [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) by [Andrej Mihajlov (`pronebird`)](https://github.com/pronebird). Now you don't need the following line in your `Bridging-Header.h` file anymore.
+The features of **LoadControl** is heavily inspired by, and is a *totally Swifted* alternative of the component [**UIScrollView-InfiniteScroll**](https://github.com/pronebird/UIScrollView-InfiniteScroll) by [Andrej Mihajlov (`pronebird`)](https://github.com/pronebird). Now you don't need the following line in your `Bridging-Header.h` file anymore.
 
 ```objc
 #import <LoadControl/LoadControl.h>
