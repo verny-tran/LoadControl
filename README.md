@@ -169,7 +169,7 @@ This haptic feedback *is not activated by default* while scrolling across the mi
 self.viewModel.load(completion: { [weak self] in
     guard let `self` = self else { return }
     
-    /// If you've run out of data, enable 'haptic feedback'.
+    /// If you've run out of data, enable `haptic feedback`.
     self.tableView.loadControl?.isHapticEnabled = self.viewModel.isEnded
     
     DispatchQueue.main.async {
