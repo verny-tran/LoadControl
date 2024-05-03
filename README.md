@@ -9,8 +9,8 @@
     <a href="https://github.com/verny-tran/LoadControl/blob/main/.github/workflows/swift.yml"><img src="https://img.shields.io/travis/verny-tran/LoadControl.svg?style=flat)"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/l/LoadControl.svg?style=flat"></a>
     <a href="https://github.com/verny-tran/LoadControl?tab=coc-ov-file"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat"></a>
-    <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
-    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl.svg?style=flat"></a>
+    <a href="https://swift.org/package-manager"><img src="https://img.shields.io/badge/SPM-supported-orange.svg?style=flat"></a>
+    <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/cocoapods/v/LoadControl-DE5C43.svg?style=flat"></a>
     <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/badge/iOS-13.0%2B-blue.svg?style=flat"></a>
     <a href="https://cocoapods.org/pods/LoadControl"><img src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg?style=flat"></a>
