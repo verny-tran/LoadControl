@@ -263,15 +263,12 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 5. Next, select your application project in the **Project Navigator** (blue project icon) to navigate to the target configuration window and select the application target under the **"Targets"** heading in the sidebar.
 6. In the tab bar at the top of that window, open the **"General"** panel.
 7. Click on the `+` button under the **"Embedded Binaries"** section.
-8. You will see two different `LoadControl.xcodeproj` folders each with two different versions of the `LoadControl.framework` nested inside a `Products` folder.
 
-  > It does not matter which `Products` folder you choose from, but it does matter whether you choose the top or bottom `LoadControl.framework`.
-
-9. Select the top `LoadControl.framework` for **iOS**.
+8. Select the `LoadControl.framework` for **iOS**.
 
   > You can verify which one you selected by inspecting the build log for your project. The build target for `LoadControl` will be listed as `LoadControlKit`.
 
-10. And that's it!
+9. And that's it!
 
   > The `LoadControl.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
